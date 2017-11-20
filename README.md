@@ -17,9 +17,9 @@ In this application, a category should contain *(at least)* the following proper
 #### reducer
 * create a `reducer.js` in your feature directory
 * This reducer should support the following interactions:
-  * `CATEGORY_CREATE`
+  * `CATEGORY_ADD`
   * `CATEGORY_UPDATE`
-  * `CATEGORY_DESTORY`
+  * `CATEGORY_REMOVE`
   * (These are also your action constants)
   
 #### action constants
