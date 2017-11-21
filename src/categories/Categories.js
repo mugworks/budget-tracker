@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { addCategory } from './actions';
+import { addCategory, updateCategory, removeCategory } from './actions';
 import CategoryForm from './CategoryForm';
 
 
@@ -15,6 +15,14 @@ class Categories extends PureComponent {
     this.props.addCategory(category);
   }
 
+  handleUpdate = category => {
+    this.props.updateCategory(category);
+  }
+
+  handleRemove = _id => {
+    this.props.removeCategory(_id);
+  }
+
   render() {
     const { categories } = this.props;
 
@@ -25,7 +33,8 @@ class Categories extends PureComponent {
         <ul>
           {categories.map(category => (
           <li key={category._id}>
-          <h4>{category.name} at ${category.budget}</h4>
+          <h4>{category.name} at ${category.budget}
+          <button onClick={() => this.handleRemove(category._id)}>Remove</button></h4>
             <CategoryForm category={category} text="Update"
             onComplete={this.handleUpdate}/>
           </li>))}
@@ -43,6 +52,6 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { addCategory }
+  { addCategory, updateCategory, removeCategory }
 )(Categories);
 
