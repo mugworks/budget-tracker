@@ -31,14 +31,21 @@
   margin: 30px;
 }
 
-.fieldset {
+.Add {
   padding: 20px;
+  color: rgb(156, 23, 156);
+}
+
+.Update {
+  padding: 20px;
+  color: rgb(46, 20, 46);
 }
 
 .button {
   padding: 5px;
   font-size: 1.2 em;
   font-weight: bold;
+  color: rgb(89, 10, 153);
 }
 
 .button:hover {
@@ -47,4 +54,10 @@
 
 .input {
   color: blue;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
