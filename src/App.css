@@ -26,3 +26,25 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.form {
+  margin: 30px;
+}
+
+.fieldset {
+  padding: 20px;
+}
+
+.button {
+  padding: 5px;
+  font-size: 1.2 em;
+  font-weight: bold;
+}
+
+.button:hover {
+  color: red;
+}
+
+.input {
+  color: blue;
+}

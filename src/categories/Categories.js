@@ -7,10 +7,6 @@ import CategoryForm from './CategoryForm';
 
 class Categories extends PureComponent {
 
-  // componentDidMount() {
-
-  // }
-
   handleAdd = category => {
     this.props.addCategory(category);
   }
@@ -29,15 +25,14 @@ class Categories extends PureComponent {
     return (
       <div>
         <CategoryForm onComplete={this.handleAdd}/>
-        <button onClick={this.handleClick}>Add Category</button>
         <ul>
           {categories.map(category => (
-          <li key={category._id}>
-          <h4>{category.name} at ${category.budget}
-          <button onClick={() => this.handleRemove(category._id)}>Remove</button></h4>
-            <CategoryForm category={category} text="Update"
-            onComplete={this.handleUpdate}/>
-          </li>))}
+            <li key={category._id}>
+              <h4>{category.name} at ${category.budget}
+                <button onClick={() => this.handleRemove(category._id)}>Remove</button></h4>
+              <CategoryForm category={category} text="Update"
+                onComplete={this.handleUpdate}/>
+            </li>))}
         </ul>
       </div>
     );
