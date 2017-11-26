@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { addCategory, updateCategory, removeCategory } from './actions';
 import CategoryForm from './CategoryForm';
 
-
-
 class Categories extends PureComponent {
 
   handleAdd = category => {
@@ -21,7 +19,6 @@ class Categories extends PureComponent {
 
   render() {
     const { categories } = this.props;
-
     return (
       <div>
         <CategoryForm onComplete={this.handleAdd}/>
@@ -50,4 +47,3 @@ export default connect(
   mapStateToProps,
   { addCategory, updateCategory, removeCategory }
 )(Categories);
-
