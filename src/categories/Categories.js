@@ -1,9 +1,13 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { addCategory, updateCategory, removeCategory } from './actions';
+import { addCategory, updateCategory, removeCategory, loadCategories } from './actions';
 import CategoryForm from './CategoryForm';
 
 class Categories extends PureComponent {
+
+  componentDidMount() {
+    this.props.loadCategories();
+  }
 
   handleAdd = category => {
     this.props.addCategory(category);
@@ -45,5 +49,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { addCategory, updateCategory, removeCategory }
+  { addCategory, updateCategory, removeCategory, loadCategories }
 )(Categories);
