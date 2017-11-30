@@ -23,7 +23,7 @@ export function loadCategories() {
 export function addCategory(category) {
   return async dispatch => {
     try {
-      const saved = await categoryApi.add(category);
+      const saved = await categoryApi.post(category);
       // category.timestamp = new Date();
       dispatch({
         type: CATEGORY_ADD,
@@ -31,6 +31,7 @@ export function addCategory(category) {
       });
     }
     catch(err) {
+      console.log('error', err);
       dispatch({
         type: CATEGORY_ERROR,
         payload: err

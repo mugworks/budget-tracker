@@ -38,7 +38,7 @@ export default class CategoryForm extends PureComponent {
   }
 
   render() {
-    const { name, budget } = this.state;
+    const { name, budget } = this.props;
     return(
       <div>
         <form  className="form" onSubmit={this.handleSubmit}>
@@ -49,7 +49,7 @@ export default class CategoryForm extends PureComponent {
               <input name="name" className="input" value={name} onChange={this.handleChange}/>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <label>Budget:&nbsp;</label>
-              <input name="budget" className="input"value={budget} onChange={this.handleChange}/>
+              <input name="budget" className="input" value={budget} onChange={this.handleChange}/>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <button className="button" type="submit">{this.props.text}</button>
             </div>
