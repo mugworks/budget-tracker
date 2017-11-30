@@ -11,6 +11,7 @@ class Categories extends PureComponent {
 
   handleAdd = category => {
     this.props.addCategory(category);
+    console.log('in handleAdd');
   }
 
   handleUpdate = category => {
