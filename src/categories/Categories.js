@@ -6,10 +6,12 @@ import CategoryForm from './CategoryForm';
 class Categories extends PureComponent {
 
   componentDidMount() {
+    console.log('inDidMount', this.props);
     this.props.loadCategories();
   }
 
   handleAdd = category => {
+    console.log('inhandleAdd');
     this.props.addCategory(category);
   }
 
@@ -25,8 +27,12 @@ class Categories extends PureComponent {
     const { categories } = this.props;
     return (
       <div>
-        <CategoryForm onComplete={this.handleAdd}/>
         <ul>
+          {categories.map(category => (
+            <li key={category._id} name={category.name} budget={category.budget}></li>))}
+        </ul>
+        <CategoryForm onComplete={this.handleAdd}/>
+        {/* <ul>
           {categories.map(category => (
             <li key={category._id}>
               <CategoryForm category={category} text="Update"
@@ -35,7 +41,7 @@ class Categories extends PureComponent {
               <button className="button" onClick={() => this.handleRemove(category._id)}>
               Remove</button>
             </li>))}
-        </ul>
+        </ul> */}
       </div>
     );
   }
