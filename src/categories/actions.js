@@ -31,7 +31,6 @@ export function addCategory(category) {
       });
     }
     catch(err) {
-      console.log('error', err);
       dispatch({
         type: CATEGORY_ERROR,
         payload: err

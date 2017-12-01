@@ -3,10 +3,7 @@ import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_UPDATE, CATEGORY_REMOVE } from '.
 export default function categories(state=[], { type, payload }) {
   switch (type) {
   case CATEGORY_LOAD:
-    return [
-      ...state,
-      payload
-    ];
+    return payload;
   case CATEGORY_ADD:
     return [
       ...state,

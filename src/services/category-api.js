@@ -2,11 +2,11 @@
 
 export default {
   get() {
-    return fetch('http://localhost:3001/api/categories')
+    return fetch('/api/categories')
       .then(response => response.json());
   },
   post(data) {
-    return fetch('http://localhost:3001/api/categories', {
+    return fetch('/api/categories', {
       method: 'post',
       body: JSON.stringify(data),
       headers: {
