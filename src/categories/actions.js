@@ -40,15 +40,38 @@ export function addCategory(category) {
 }
 
 export function updateCategory(category) {
-  return{
-    type: CATEGORY_UPDATE,
-    payload: category
+  console.log('in updateCategory', category);
+  return async dispatch => {
+    try {
+      const updatedData = await categoryApi.update(category);
+      dispatch({
+        type: CATEGORY_UPDATE,
+        payload: updatedData
+      });
+    }
+    catch(err) {
+      dispatch({
+        type: CATEGORY_ERROR,
+        payload: err
+      });
+    }
   };
 }
 
 export function removeCategory(id) {
-  return{
-    type: CATEGORY_REMOVE,
-    payload: id
+  return async dispatch => {
+    try {
+      await categoryApi.delete(id);
+      dispatch({
+        type: CATEGORY_REMOVE,
+        payload: id
+      });
+    }
+    catch(err) {
+      dispatch({
+        type: CATEGORY_ERROR,
+        payload: err
+      });
+    }
   };
 }

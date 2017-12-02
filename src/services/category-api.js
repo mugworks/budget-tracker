@@ -15,6 +15,19 @@ export default {
       }
     })
       .then(response => response.json());
+  },
+  delete(id) {
+    return fetch(`/api/categories/${id}`, {
+      method: 'delete'
+    })
+      .then(response => response.json());
+  },
+  put(id) {
+    console.log ('in put', id);
+    return fetch(`/api/categories/${id}`, {
+      method: 'put'
+    })
+      .then(response => response.json());
   }
 };
 

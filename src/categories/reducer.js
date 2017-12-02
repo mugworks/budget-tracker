@@ -1,6 +1,7 @@
 import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_UPDATE, CATEGORY_REMOVE } from './constants';
 
 export default function categories(state=[], { type, payload }) {
+  console.log('in reducer', payload);
   switch (type) {
   case CATEGORY_LOAD:
     return payload;
