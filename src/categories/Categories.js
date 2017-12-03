@@ -14,13 +14,22 @@ class Categories extends PureComponent {
   }
 
   handleAdd = category => {
+    console.log('inhandleAdd');
     this.props.addCategory(category);
   }
 
-  handleUpdate = (id) => {
-    console.log('inHandleUpdate', id);
+  handleShowUpdate = (category) => {
+    console.log('inHandleShowUpdate', category);
     this.setState({ editing: true });
+    // const { name, budget } = this.state;
+    console.log('name and budget', category.name, category.budget);
+    // this.state.onComplete({ name, budget });
     // this.props.updateCategory(id);
+  }
+
+  handleSubmitUpdate = (id) => {
+    console.log('inhandleSubmit', id);
+    this.props.updateCategory(id);
   }
   
   handleRemove = _id => {
@@ -31,29 +40,41 @@ class Categories extends PureComponent {
     const { categories } = this.props;
     return (
       <div>
-        <ul>
-          {categories.map(category => (
-            <li key={category._id} name={category.name} budget={category.budget}>{category.name}{category.budget}<button className="button" onClick={() => this.handleRemove(category._id)}>
-              Remove</button><button className="button" onClick={() => this.handleUpdate(category)}>
-                Update</button>
-            </li>))}
-        </ul>
-        {/* <CategoryForm category={category} onComplete={this.handleUpdate}/> */}
-        <CategoryForm onComplete={this.handleAdd}/>
-        <CategoryForm category={categories._id} text="Update"
-          onComplete={this.handleUpdate}
-        />
-        {/* <ul>
-          {categories.map(category => (
-            <li key={category._id}>
-              <CategoryForm category={category} text="Update"
-                onComplete={this.handleUpdate}
-              />
-              <button className="button" onClick={() => this.handleRemove(category._id)}>
-              Remove</button>
-            </li>))}
-        </ul> */}
+        <table id="table">
+          <thead>
+            <tr>
+              <th>Category Name</th>
+              <th>Budget</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {categories.map(category => (
+              <ListItem key={category._id} name={category.name} budget={category.budget}/>
+            ))}
+          </tbody>
+        </table>
+        { this.state.editing ? <CategoryForm text="Update" 
+          onComplete={this.handleSubmitUpdate}
+        /> :
+          <CategoryForm onComplete={this.handleAdd}/>}
       </div>
+    );
+  }
+}
+
+class ListItem extends PureComponent {
+  
+  render() {
+    const { id, name, budget, onShowUpdate, onRemove } = this.props;
+    return(
+      <tr>
+        <td>{ name }</td>
+        <td>{ budget }</td>
+        <td><button className="button" onClick={() => onRemove(id)}>Remove</button></td>
+        <td><button className="button" onClick={() => onShowUpdate(id)}>Update</button></td>
+      </tr>
     );
   }
 }

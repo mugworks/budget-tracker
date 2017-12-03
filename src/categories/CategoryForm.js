@@ -24,6 +24,9 @@ export default class CategoryForm extends PureComponent {
     };
   }
 
+  componentDidMount
+
+
   handleSubmit = event => {
     event.preventDefault();
     const { name, budget } = this.state;
