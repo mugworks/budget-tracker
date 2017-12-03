@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class CategoryForm extends PureComponent {
+export default class CategoryForm extends Component {
 
   static propTypes = {
     category: PropTypes.object,
@@ -19,12 +19,15 @@ export default class CategoryForm extends PureComponent {
     this.state = {
       name: category.name || '',
       budget: category.budget || '',
-      _id: category._id || null,
+      // _id: category._id || null,
       // timestamp: category.timestamp
     };
   }
 
-  componentDidMount
+  componentDidMount() {
+    console.log('onFormPage', this.props);
+    // this.setState({ name: this.props.name });
+  } 
 
 
   handleSubmit = event => {
@@ -41,7 +44,7 @@ export default class CategoryForm extends PureComponent {
   }
 
   render() {
-    const { name, budget } = this.props;
+    const { name, budget } = this.state;
     return(
       <div>
         <form  className="form" onSubmit={this.handleSubmit}>
@@ -50,10 +53,8 @@ export default class CategoryForm extends PureComponent {
             <div>
               <label>Name:&nbsp;</label>
               <input name="name" className="input" value={name} onChange={this.handleChange}/>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <label>Budget:&nbsp;</label>
               <input name="budget" className="input" value={budget} onChange={this.handleChange}/>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <button className="button" type="submit">{this.props.text}</button>
             </div>
           </fieldset>

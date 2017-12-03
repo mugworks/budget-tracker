@@ -55,6 +55,10 @@
   color: white;
 }
 
+.input {
+  margin-right: 30px;
+}
+
 .Add {
   padding: 20px;
   color: rgb(156, 23, 156);
