@@ -24,8 +24,10 @@ export default class CategoryForm extends Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     console.log('onFormPage', this.props);
+    const { name, budget } = this.props;
+    this.setState({ name, budget });
     // this.setState({ name: this.props.name });
   } 
 

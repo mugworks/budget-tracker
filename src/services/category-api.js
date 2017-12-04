@@ -6,6 +6,7 @@ export default {
       .then(response => response.json());
   },
   post(data) {
+    console.log('in api');
     return fetch('/api/categories', {
       method: 'post',
       body: JSON.stringify(data),

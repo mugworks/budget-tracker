@@ -15,7 +15,7 @@ class Categories extends Component {
   }
 
   handleAdd = category => {
-    console.log('inhandleAdd');
+    console.log('inhandleAdd', category);
     this.props.addCategory(category);
   }
 
@@ -32,7 +32,7 @@ class Categories extends Component {
     console.log('inhandleSubmit', id);
     this.props.updateCategory(id);
   }
-  
+
   handleRemove = _id => {
     this.props.removeCategory(_id);
   }
@@ -56,10 +56,14 @@ class Categories extends Component {
             ))}
           </tbody>
         </table>
+        <CategoryForm text="Add" onComplete={this.handleAdd}
+        />
+      
         { this.state.editing ? <CategoryForm text="Update" editing={this.state.editing} name={categories[this.state.editingIndex].name} budget={categories[this.state.editingIndex].budget}
           onComplete={this.handleSubmitUpdate}
-        /> :
-          <CategoryForm onComplete={this.handleAdd}/>}
+        /> : []
+        }
+          
       </div>
     );
   }

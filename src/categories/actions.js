@@ -21,6 +21,7 @@ export function loadCategories() {
 }
 
 export function addCategory(category) {
+  console.log('inactionAdd');
   return async dispatch => {
     try {
       const saved = await categoryApi.post(category);
