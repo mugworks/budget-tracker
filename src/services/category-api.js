@@ -1,5 +1,4 @@
 
-
 export default {
   get() {
     return fetch('/api/categories')
@@ -37,7 +36,6 @@ export default {
       .then(response => response.json())
       .catch(err => console.log('err', err));
   }
-
 };
 
 
