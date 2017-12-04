@@ -28,9 +28,9 @@ class Categories extends Component {
     // this.props.updateCategory(id);
   }
 
-  handleSubmitUpdate = (id) => {
-    console.log('inhandleSubmit', id);
-    this.props.updateCategory(id);
+  handleSubmitUpdate = (category) => {
+    console.log('inhandleSubmit', category);
+    this.props.updateCategory(category);
   }
 
   handleRemove = _id => {

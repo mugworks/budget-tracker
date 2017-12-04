@@ -23,13 +23,21 @@ export default {
     })
       .then(response => response.json());
   },
-  put(id) {
-    console.log ('in put', id);
+  put(id, data) {
+    console.log ('in put', 'id= ' ,id, 'data= ', data);
+    console.log ('route', `/api/categories/${id}`);
     return fetch(`/api/categories/${id}`, {
-      method: 'put'
+      method: 'put',
+      body: JSON.stringify(data),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
     })
-      .then(response => response.json());
+      .then(response => response.json())
+      .catch(err => console.log('err', err));
   }
+
 };
 
 

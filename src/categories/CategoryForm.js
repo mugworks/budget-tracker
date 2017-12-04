@@ -19,13 +19,13 @@ export default class CategoryForm extends Component {
     this.state = {
       name: category.name || '',
       budget: category.budget || '',
-      _id: category._id || null,
+      // _id: category._id || null,
       // timestamp: category.timestamp
     };
   }
 
   componentWillMount() {
-    console.log('onFormPage', this.props);
+    console.log('onFormPage', this.props.id);
     const { name, budget } = this.props;
     this.setState({ name, budget });
     // this.setState({ name: this.props.name });
@@ -34,8 +34,10 @@ export default class CategoryForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    const { id } = this.props;
+    console.log('in handleSubmit', id);
     const { name, budget } = this.state;
-    this.props.onComplete({ name, budget });
+    this.props.onComplete({ id, name, budget });
     event.target.reset();
   }
 

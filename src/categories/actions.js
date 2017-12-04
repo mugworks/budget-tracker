@@ -44,7 +44,7 @@ export function updateCategory(category) {
   console.log('in updateCategory', category);
   return async dispatch => {
     try {
-      const updatedData = await categoryApi.update(category);
+      const updatedData = await categoryApi.put(category.id, { name: category.name, budget: category.budget });
       dispatch({
         type: CATEGORY_UPDATE,
         payload: updatedData
