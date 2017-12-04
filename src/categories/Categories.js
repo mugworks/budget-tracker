@@ -59,7 +59,7 @@ class Categories extends Component {
         <CategoryForm text="Add" onComplete={this.handleAdd}
         />
       
-        { this.state.editing ? <CategoryForm text="Update" editing={this.state.editing} name={categories[this.state.editingIndex].name} budget={categories[this.state.editingIndex].budget}
+        { this.state.editing ? <CategoryForm text="Update" editing={this.state.editing} id={categories[this.state.editingIndex]._id} name={categories[this.state.editingIndex].name} budget={categories[this.state.editingIndex].budget}
           onComplete={this.handleSubmitUpdate}
         /> : []
         }
