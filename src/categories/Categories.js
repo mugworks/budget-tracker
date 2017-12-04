@@ -29,6 +29,7 @@ class Categories extends Component {
   }
 
   handleSubmitUpdate = (category) => {
+    this.setState({ editing: false });
     console.log('inhandleSubmit', category);
     this.props.updateCategory(category);
   }
@@ -56,8 +57,9 @@ class Categories extends Component {
             ))}
           </tbody>
         </table>
-        <CategoryForm text="Add" onComplete={this.handleAdd}
-        />
+        { !this.state.editing ? <CategoryForm text="Add" onComplete={this.handleAdd}
+        /> : []
+        }
       
         { this.state.editing ? <CategoryForm text="Update" editing={this.state.editing} id={categories[this.state.editingIndex]._id} name={categories[this.state.editingIndex].name} budget={categories[this.state.editingIndex].budget}
           onComplete={this.handleSubmitUpdate}

@@ -34,11 +34,15 @@ export default class CategoryForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { id } = this.props;
+    const { id, editing } = this.props;
     console.log('in handleSubmit', id);
     const { name, budget } = this.state;
-    this.props.onComplete({ id, name, budget });
+    this.props.onComplete({ id, name, budget, editing });
     event.target.reset();
+    this.setState({
+      name: '',
+      budget: ''
+    });
   }
 
   handleChange = ({ target: input }) => {
@@ -49,6 +53,7 @@ export default class CategoryForm extends Component {
 
   render() {
     const { name, budget } = this.state;
+    const { editing } = this.props;
     return(
       <div>
         <form  className="form" onSubmit={this.handleSubmit}>
