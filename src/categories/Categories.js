@@ -10,6 +10,10 @@ class Categories extends Component {
     editingIndex: ''
   }
 
+  componentWillMount() {
+    this.props.loadCategories({ wait: 300000 });
+  }
+  
   componentDidMount() {
     this.props.loadCategories();
   }

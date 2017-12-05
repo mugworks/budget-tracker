@@ -4,7 +4,7 @@ import categoryApi from '../services/category-api.js';
 
 export function loadCategories() {
   return async dispatch => {
-    // dispatch({ type: LOADING });
+    dispatch({ type: LOADING });
 
     try {
       const categories = await categoryApi.get();
