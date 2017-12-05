@@ -1,9 +1,11 @@
-import { CATEGORY_ADD, CATEGORY_UPDATE, CATEGORY_REMOVE, CATEGORY_LOAD, CATEGORY_ERROR } from './constants';
+import { CATEGORY_ADD, CATEGORY_UPDATE, CATEGORY_REMOVE, CATEGORY_LOAD, ERROR, LOADING } from './constants';
 import categoryApi from '../services/category-api.js';
 // import shortid from 'short-id';
 
 export function loadCategories() {
   return async dispatch => {
+    // dispatch({ type: LOADING });
+
     try {
       const categories = await categoryApi.get();
       dispatch({
@@ -13,9 +15,10 @@ export function loadCategories() {
     }
     catch(err) {
       dispatch({
-        type: CATEGORY_ERROR,
+        type: ERROR,
         payload: err
       });
+      throw err;
     }
   };
 }
@@ -33,7 +36,7 @@ export function addCategory(category) {
     }
     catch(err) {
       dispatch({
-        type: CATEGORY_ERROR,
+        type: ERROR,
         payload: err
       });
     }
@@ -52,7 +55,7 @@ export function updateCategory(category) {
     }
     catch(err) {
       dispatch({
-        type: CATEGORY_ERROR,
+        type: ERROR,
         payload: err
       });
     }
@@ -70,7 +73,7 @@ export function removeCategory(id) {
     }
     catch(err) {
       dispatch({
-        type: CATEGORY_ERROR,
+        type: ERROR,
         payload: err
       });
     }

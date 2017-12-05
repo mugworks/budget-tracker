@@ -40,6 +40,7 @@ class Categories extends Component {
 
   render() {
     const { categories } = this.props;
+    console.log('categories', categories);
     return (
       <div>
         <table id="table">
@@ -89,7 +90,7 @@ class ListItem extends Component {
 function mapStateToProps(state) {
   console.log('in connect', state);
   return {
-    categories: state
+    categories: state.categories
   };
 }
 
