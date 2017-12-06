@@ -14,7 +14,14 @@ export default {
         'Content-Type': 'application/json'
       }
     })
-      .then(response => response.json());
+      .then(async (response) => {
+        if (response.ok) return response.json();
+        const error = await response.json();
+        throw error;
+      });
+
+      // .then(response => response.json());
+      // .catch(err => console.log('err', err));
   },
   delete(id) {
     return fetch(`/api/categories/${id}`, {

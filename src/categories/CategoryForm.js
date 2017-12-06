@@ -36,16 +36,16 @@ export default class CategoryForm extends Component {
     console.log('in handleSubmit', id);
     const { name, budget } = this.state;
     this.props.onComplete({ id, name, budget, editing });
-    event.target.reset();
+    // event.target.reset();
     this.setState({
       name: '',
       budget: ''
     });
   }
 
-  handleChange = ({ target: input }) => {
+  handleChange = ({ target }) => {
     this.setState({
-      [input.name]: input.value
+      [target.name]: target.value
     });
   }
 

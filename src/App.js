@@ -3,10 +3,11 @@ import Categories from './categories/Categories';
 import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
+// import { error } from 'util';
 
 class App extends Component {
   render() {
-    const { loading } = this.props;
+    const { loading, error } = this.props;
     return (
       <div className="App">
         <header className="App-header">
@@ -17,7 +18,16 @@ class App extends Component {
         {loading &&
           <div className="loader">
             Loading...
-          </div>}
+          </div>
+        }
+        {error && 
+          <div className="error">
+            {Array.isArray(error)
+              ? <ul>error.map(err => <li>err</li>)</ul>
+              : error.error ? error.error : error
+            }
+          </div>
+        }
       </div>
     );
   }
@@ -25,7 +35,8 @@ class App extends Component {
 
 export default connect(
   state => ({
-    loading: state.loading
+    loading: state.loading,
+    error: state.error
   }),
   null
 ) (App);
