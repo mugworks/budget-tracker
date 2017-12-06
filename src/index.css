@@ -5,7 +5,7 @@ body {
 }
 
 .error {
-  color: pink;
+  color: rgb(243, 3, 47);
   font-family: monospace;
   padding: 20px;
 }
