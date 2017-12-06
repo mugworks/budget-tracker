@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { Button } from './component-library';
 
 export default class CategoryForm extends Component {
 
@@ -50,6 +52,7 @@ export default class CategoryForm extends Component {
   }
 
   render() {
+    const styledButton = Button(this.props.text, 'submit');
     const { name, budget } = this.state;
     const { editing } = this.props;
     return(
@@ -62,7 +65,7 @@ export default class CategoryForm extends Component {
               <input name="name" className="input" value={name} onChange={this.handleChange}/>
               <label>Budget:&nbsp;</label>
               <input name="budget" className="input" value={budget} onChange={this.handleChange}/>
-              <button className="button" type="submit">{this.props.text}</button>
+              {styledButton}
             </div>
           </fieldset>
         </form>
@@ -70,3 +73,10 @@ export default class CategoryForm extends Component {
     );
   }
 }
+
+
+  
+  
+  // .button:hover {
+  //   color: red;
+ 

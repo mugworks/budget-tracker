@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Categories from './categories/Categories';
 import './App.css';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 // import { error } from 'util';
 
@@ -10,7 +11,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to Categories!</h1>
+          <Title>Welcome to Categories!</Title>
         </header>
         <Categories/>
         {loading &&
@@ -30,6 +31,13 @@ class App extends Component {
     );
   }
 }
+
+const Title = styled.h1`
+  font-weight: bold;
+  color: violet;
+  font-size: 32px;
+  text-align: center;
+`;
 
 export default connect(
   state => ({

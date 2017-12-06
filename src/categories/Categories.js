@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addCategory, updateCategory, removeCategory, loadCategories } from './actions';
 import CategoryForm from './CategoryForm';
+import { Button } from './component-library';
 
 class Categories extends Component {
 
@@ -30,9 +31,9 @@ class Categories extends Component {
 
   handleSubmitUpdate = (category) => {
     // if (!this.state.error) {
-      this.setState({ editing: false });
-      console.log('inhandleSubmit', category);
-      this.props.updateCategory(category);
+    this.setState({ editing: false });
+    console.log('inhandleSubmit', category);
+    this.props.updateCategory(category);
     // }
   }
 
@@ -78,12 +79,20 @@ class ListItem extends Component {
   
   render() {
     const { id, name, budget, onShowUpdate, onRemove, editing, index } = this.props;
+    const removeButton = Button('Remove', 'submit', () => {
+      console.log('in Button id', id);
+      onRemove(id);
+    });
+    const updateButton = Button('Update', 'submit', () => {
+      onShowUpdate(index);
+    });
+    
     return(
       <tr>
         <td>{ name }</td>
         <td>{ budget }</td>
-        <td><button className="button" onClick={() => onRemove(id)}>Remove</button></td>
-        <td><button className="button" onClick={() => onShowUpdate(index)}>Update</button></td>
+        <td>{removeButton}</td>
+        <td>{updateButton}</td>
       </tr>
     );
   }
