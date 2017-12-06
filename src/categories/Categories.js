@@ -29,9 +29,11 @@ class Categories extends Component {
   }
 
   handleSubmitUpdate = (category) => {
-    this.setState({ editing: false });
-    console.log('inhandleSubmit', category);
-    this.props.updateCategory(category);
+    // if (!this.state.error) {
+      this.setState({ editing: false });
+      console.log('inhandleSubmit', category);
+      this.props.updateCategory(category);
+    // }
   }
 
   handleRemove = _id => {
@@ -39,7 +41,7 @@ class Categories extends Component {
   }
 
   render() {
-    const { categories } = this.props;
+    const { categories, error } = this.props;
     console.log('categories', categories);
     return (
       <div>

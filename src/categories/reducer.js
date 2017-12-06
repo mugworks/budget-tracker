@@ -33,9 +33,12 @@ export function loading(state = false, { type }) {
 }
 
 export function error(state = null, { type, payload }) {
+  console.log('in ERROR in reducer', payload);
   switch(type) {
   case ERROR:
     return payload;
+  case CATEGORY_ADD:
+  case CATEGORY_UPDATE:
   case CATEGORY_LOAD:
   case LOADING:
     return null;
