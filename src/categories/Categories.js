@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addCategory, updateCategory, removeCategory, loadCategories } from './actions';
 import CategoryForm from './CategoryForm';
+import styled from 'styled-components';
 import { Button } from './component-library';
+
 
 class Categories extends Component {
 
@@ -46,7 +48,7 @@ class Categories extends Component {
     console.log('categories', categories);
     return (
       <div>
-        <table id="table">
+        <Table>
           <thead>
             <tr>
               <th>Category Name</th>
@@ -60,7 +62,7 @@ class Categories extends Component {
               <ListItem index={index} key={category._id} id={category._id} name={category.name} budget={category.budget} onShowUpdate={this.handleShowUpdate} onRemove={this.handleRemove}/>
             ))}
           </tbody>
-        </table>
+        </Table>
         { !this.state.editing ? <CategoryForm text="Add" onComplete={this.handleAdd}
         /> : []
         }
@@ -97,6 +99,31 @@ class ListItem extends Component {
     );
   }
 }
+
+const backgroundColor = '#6f609f';
+const border = '1px solid #ddd';
+const Table = styled.table`
+  margin: 30px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 40px;
+  > thead > tr {
+      border: ${border};
+      background-color: ${backgroundColor};
+      padding: 12px 8px; 
+      text-align: center;
+      color: white;
+  }
+  > tbody > tr {
+      &:nth-child(even){background-color: #f2f2f2;}
+      &:hover {background-color: #ddd;}
+      padding: 8px;
+      > td {
+        border: ${border};
+      }
+  }
+  `;
 
 function mapStateToProps(state) {
   console.log('in connect', state);

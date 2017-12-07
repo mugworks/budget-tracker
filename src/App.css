@@ -18,7 +18,7 @@
   to { transform: rotate(360deg); }
 }
 
-.form, .table {
+/* .form, .table {
   margin: 30px;
 }
 
@@ -44,13 +44,13 @@
   text-align: center;
   background-color: rgb(130, 117, 173);
   color: white;
-}
+} */
 
-.input {
+/* .input {
   margin-right: 30px;
-}
+} */
 
-.Add {
+/* .Add {
   padding: 20px;
   color: rgb(156, 23, 156);
 }
@@ -58,7 +58,7 @@
 .Update {
   padding: 20px;
   color: rgb(46, 20, 46);
-}
+} */
 
 /* .button {
   padding: 5px;
@@ -70,10 +70,10 @@
 .button:hover {
   color: red;
 } */
-
+/* 
 .input {
   color: blue;
-}
+} */
 
 .loader {
   position: absolute;

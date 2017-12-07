@@ -57,26 +57,36 @@ export default class CategoryForm extends Component {
     const { editing } = this.props;
     return(
       <div>
-        <form  className="form" onSubmit={this.handleSubmit}>
-          <fieldset className={this.props.text}>
+        <Form onSubmit={this.handleSubmit}>
+          <Fieldset text={this.props.text}>
             <legend>{this.props.text} a Category</legend>
             <div>
               <label>Name:&nbsp;</label>
-              <input name="name" className="input" value={name} onChange={this.handleChange}/>
+              <Input name="name" value={name} onChange={this.handleChange}/>
               <label>Budget:&nbsp;</label>
-              <input name="budget" className="input" value={budget} onChange={this.handleChange}/>
+              <Input name="budget" value={budget} onChange={this.handleChange}/>
               {styledButton}
             </div>
-          </fieldset>
-        </form>
+          </Fieldset>
+        </Form>
       </div>
     );
   }
 }
 
+const Form = styled.form`
+  background-color: white;
+  padding: 30px;
+  `;
+
+const Fieldset = styled.fieldset`
+  padding: 20px;
+  color: ${props => props.text === 'Add' ? 'rgb(156, 23, 156)' : 'rgb(255, 50, 50)'}
+  `;
+
+const Input = styled.input`
+  margin-right: 30px;
+  color: blue;
+`;
 
   
-  
-  // .button:hover {
-  //   color: red;
- 
