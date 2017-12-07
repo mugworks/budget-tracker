@@ -77,6 +77,7 @@ export default class CategoryForm extends Component {
 const Form = styled.form`
   background-color: white;
   padding: 30px;
+  margin: 30px;
   `;
 
 const Fieldset = styled.fieldset`

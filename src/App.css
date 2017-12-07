@@ -18,7 +18,7 @@
   to { transform: rotate(360deg); }
 }
 
-/* .form, .table {
+ .form, .table {
   margin: 30px;
 }
 
@@ -32,7 +32,7 @@
 #table td, #table th {
   border: 1px solid #ddd;
   padding: 8px;
-}
+} 
 
 #table tr:nth-child(even){background-color: #f2f2f2;}
 
@@ -44,7 +44,7 @@
   text-align: center;
   background-color: rgb(130, 117, 173);
   color: white;
-} */
+} 
 
 /* .input {
   margin-right: 30px;

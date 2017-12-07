@@ -103,7 +103,6 @@ class ListItem extends Component {
 const backgroundColor = '#6f609f';
 const border = '1px solid #ddd';
 const Table = styled.table`
-  margin: 30px;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
