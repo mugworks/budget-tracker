@@ -30,6 +30,4 @@ describe('categories reducer', () => {
       { ...category,  name: 'birds', budget: '4' } 
     ]);
   });
-
-  
 });

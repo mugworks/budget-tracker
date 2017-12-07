@@ -20,8 +20,7 @@ export default class CategoryForm extends Component {
     
     this.state = {
       name: category.name || '',
-      budget: category.budget || '',
-      // timestamp: category.timestamp
+      budget: category.budget || ''
     };
   }
 

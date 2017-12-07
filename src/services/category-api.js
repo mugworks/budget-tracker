@@ -19,9 +19,6 @@ export default {
         const error = await response.json();
         throw error;
       });
-
-      // .then(response => response.json());
-      // .catch(err => console.log('err', err));
   },
   delete(id) {
     return fetch(`/api/categories/${id}`, {
@@ -44,5 +41,3 @@ export default {
       .catch(err => console.log('err', err));
   }
 };
-
-

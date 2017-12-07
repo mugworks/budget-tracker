@@ -3,7 +3,6 @@ import Categories from './categories/Categories';
 import './App.css';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-// import { error } from 'util';
 
 class App extends Component {
   render() {

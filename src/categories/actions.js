@@ -1,6 +1,5 @@
 import { CATEGORY_ADD, CATEGORY_UPDATE, CATEGORY_REMOVE, CATEGORY_LOAD, ERROR, LOADING } from './constants';
 import categoryApi from '../services/category-api.js';
-// import shortid from 'short-id';
 
 export function loadCategories() {
   return async dispatch => {

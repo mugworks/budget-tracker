@@ -4,6 +4,7 @@ import { addCategory, updateCategory, removeCategory, loadCategories } from './a
 import CategoryForm from './CategoryForm';
 import styled from 'styled-components';
 import { Button } from './component-library';
+import { backgroundColor, border } from './constants';
 
 
 class Categories extends Component {
@@ -26,17 +27,12 @@ class Categories extends Component {
     console.log('inHandleShowUpdate', this.props.categories[index]);
     this.setState({ editing: true });
     this.setState({ editingIndex: index });
-    // const { name, budget } = this.state;
-    // this.state.onComplete({ name, budget });
-    // this.props.updateCategory(id);
   }
 
   handleSubmitUpdate = (category) => {
-    // if (!this.state.error) {
     this.setState({ editing: false });
     console.log('inhandleSubmit', category);
     this.props.updateCategory(category);
-    // }
   }
 
   handleRemove = _id => {
@@ -65,13 +61,11 @@ class Categories extends Component {
         </Table>
         { !this.state.editing ? <CategoryForm text="Add" onComplete={this.handleAdd}
         /> : []
-        }
-      
+        }      
         { this.state.editing ? <CategoryForm text="Update" editing={this.state.editing} id={categories[this.state.editingIndex]._id} name={categories[this.state.editingIndex].name} budget={categories[this.state.editingIndex].budget}
           onComplete={this.handleSubmitUpdate}
         /> : []
-        }
-          
+        }          
       </div>
     );
   }
@@ -87,8 +81,7 @@ class ListItem extends Component {
     });
     const updateButton = Button('Update', 'submit', () => {
       onShowUpdate(index);
-    });
-    
+    });    
     return(
       <tr>
         <td>{ name }</td>
@@ -100,8 +93,6 @@ class ListItem extends Component {
   }
 }
 
-const backgroundColor = '#6f609f';
-const border = '1px solid #ddd';
 const Table = styled.table`
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
